@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -e
+
+source "${0%/*}/../share/python-install/python-install.sh"
+
+if [[ $# -eq 0 ]]; then
+	known_pythons
+	exit
+fi
+
+parse_options "$@" || exit $?
+load_python          || exit $?
+
+if [[ $NO_REINSTALL -eq 1 ]] && [[ -x "$INSTALL_DIR/bin/python" ]]; then
+	fail "Python is already installed into $INSTALL_DIR"
+fi
+
+log "Installing $PYTHON $PYTHON_VERSION into $INSTALL_DIR ..."
+
+pre_install || fail "Pre-install tasks failed!"
+
+if [[ ! $NO_INSTALL_DEPS -eq 1 ]]; then
+	install_deps || fail "Installing dependencies failed!"
+fi
+
+if [[ ! $NO_DOWNLOAD -eq 1 ]]; then
+	download_python || fail "Download of $PYTHON_URL failed!"
+fi
+
+if [[ ! $NO_VERIFY -eq 1 ]]; then
+	verify_python || fail "Verification of of $PYTHON_ARCHIVE failed!"
+fi
+
+extract_python   || fail "Unpacking of $PYTHON_ARCHIVE failed!"
+download_patches || fail "Fetching patches $PATCHES failed!"
+apply_patches  || fail "Patching $PYTHON $PYTHON_VERSION failed!"
+cd "$SRC_DIR/$PYTHON_SRC_DIR"
+configure_python || fail "Configuration of $PYTHON $PYTHON_VERSION failed!"
+compile_python   || fail "Compiling $PYTHON $PYTHON_VERSION failed!"
+install_python   || fail "Installation of $PYTHON $PYTHON_VERSION failed!"
+post_install   || fail "Post-install tasks failed!"
+
+log "Successfully installed $PYTHON $PYTHON_VERSION into $INSTALL_DIR"

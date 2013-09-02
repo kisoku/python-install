@@ -1,0 +1,4 @@
+apt: build-essential zlib1g-dev libssl-dev libbz2-dev libsqlite3-dev
+yum: gcc automake zlib-devel openssl-devel bzip2 bzip2-devel readline-devel sqlite-devel
+brew: openssl readline libyaml gdbm libffi
+pacman: gcc make zlib ncurses openssl readline libyaml gdbm libffi
