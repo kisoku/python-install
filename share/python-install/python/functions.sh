@@ -61,9 +61,16 @@ function install_python()
 
 function post_install()
 {
+	if [[ -n "$DESTDIR" ]]; then
+		log "detected DESTDIR: $DESTDIR"
+		PYTHON_INSTALL_DIR=$DESTDIR$INSTALL_DIR
+	else
+		PYTHON_INSTALL_DIR=$INSTALL_DIR
+	fi
+
 	# work around the lack of bin/python in python 3 installs
-	if [ ! -f $INSTALL_DIR/bin/python -a -f $INSTALL_DIR/bin/python3 ]; then
-		ln -s $INSTALL_DIR/bin/python3 $INSTALL_DIR/bin/python
+	if [ ! -f $PYTHON_INSTALL_DIR/bin/python -a -f $PYTHON_INSTALL_DIR/bin/python3 ]; then
+		ln -s $PYTHON_INSTALL_DIR/bin/python3 $PYTHON_INSTALL_DIR/bin/python
 	fi
 
 	log "Downloading $SETUPTOOLS_URL into $SRC_DIR ..."
@@ -77,8 +84,8 @@ function post_install()
 
 	log "Installing setuptools $SETUPTOOLS_VERSION"
 	cd "$SRC_DIR/$SETUPTOOLS_SRC_DIR"
-	$INSTALL_DIR/bin/python ./setup.py build
-	$INSTALL_DIR/bin/python ./setup.py install
+	$PYTHON_INSTALL_DIR/bin/python ./setup.py build
+	$PYTHON_INSTALL_DIR/bin/python ./setup.py install
 
 	log "Downloading $PIP_URL into $SRC_DIR ..."
 	download "$PIP_URL" "$SRC_DIR"
@@ -91,6 +98,6 @@ function post_install()
 
 	log "Installing pip $PIP_VERSION"
 	cd "$SRC_DIR/$PIP_SRC_DIR"
-	$INSTALL_DIR/bin/python ./setup.py build
-	$INSTALL_DIR/bin/python ./setup.py install
+	$PYTHON_INSTALL_DIR/bin/python ./setup.py build
+	$PYTHON_INSTALL_DIR/bin/python ./setup.py install
 }
