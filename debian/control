@@ -1,0 +1,26 @@
+Source: python-install
+Section: devel
+Priority: extra
+Maintainer: Mathieu Sauve-Frankel <msf@kisoku.net>
+Build-Depends: cdbs, debhelper (>= 7)
+Standards-Version: 3.8.3
+Homepage: https://github.com/kisoku/python-install
+
+Package: python-install
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+  bash,
+  build-essential,
+  coreutils,
+  wget
+Description: install the python implementation of your choice
+  * Supports installing arbitrary versions.
+  * Supports installing into `/opt/pythons/` for root and `~/.pythons/` for users
+    by default.
+  * Supports installing into arbitrary directories.
+  * Supports downloading from mirrors.
+  * Supports downloading/applying patches.
+  * Supports applying arbitrary patches.
+  * Supports specifying arbitrary `./configure` options.
+  * Supports downloading archives using `wget` or `curl`.
+  * Supports verifying downloaded archives using `md5sum` or `md5`.
