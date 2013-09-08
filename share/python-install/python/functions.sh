@@ -34,6 +34,7 @@ function configure_python()
 
 	if [[ "$PACKAGE_MANAGER" == "brew" ]]; then
 		./configure --prefix="$INSTALL_DIR" \
+			    --enabled-shared \
 			    --with-opt-dir="$(brew --prefix openssl):$(brew --prefix readline):$(brew --prefix libyaml):$(brew --prefix gdbm):$(brew --prefix libffi)" \
 			    "${CONFIGURE_OPTS[@]}"
 	else
