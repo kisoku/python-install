@@ -38,7 +38,9 @@ function configure_python()
 			    --with-opt-dir="$(brew --prefix openssl):$(brew --prefix readline):$(brew --prefix libyaml):$(brew --prefix gdbm):$(brew --prefix libffi)" \
 			    "${CONFIGURE_OPTS[@]}"
 	else
-		./configure --prefix="$INSTALL_DIR" "${CONFIGURE_OPTS[@]}"
+		./configure --prefix="$INSTALL_DIR" \
+			    --enable-shared \
+			    "${CONFIGURE_OPTS[@]}"
 	fi
 }
 
