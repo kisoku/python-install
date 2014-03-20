@@ -51,18 +51,6 @@ Install a Python into a specific directory:
 
     $ python-install -i /usr/local/ python 2.7.8
 
-Install a Python from a mirror:
-
-    $ python-install -M http://www.mirrorservice.org/sites/ftp.python-lang.org/pub/python python 2.0.0-p247
-
-Install a Python with a specific patch:
-
-    $ python-install -p https://raw.github.com/gist/4136373/falcon-gc.diff python 1.9.3-p429
-
-Install a Python with specific configuration:
-
-    $ python-install python 2.7.8 -- --enable-shared --enable-dtrace CFLAGS="-O3"
-
 [apt]: http://wiki.debian.org/Apt
 [yum]: http://yum.baseurl.org/
 [pacman]: https://wiki.archlinux.org/index.php/Pacman
