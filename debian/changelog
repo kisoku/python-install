@@ -1,5 +1,13 @@
+python-install (0.0.2-1) precise; urgency=low
+
+  * add python 2.7.6 and python 3.4.0
+  * update setuptools to 3.3
+  * update pip to 1.5.4
+
+ -- Mathieu Sauve-Frankel <msf@tanto.qualcomm.com>  Fri, 21 Mar 2014 10:07:00 +1100
+
 python-install (0.0.1-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release
 
- -- Mathieu Sauve-Frankel <msf@kisoku.net>  Tue, 03 Sep 2013 10:12:23 +0000
+ -- Mathieu Sauve-Frankel <msf@tanto.qualcomm.com>  Fri, 21 Mar 2014 10:06:51 +1100
