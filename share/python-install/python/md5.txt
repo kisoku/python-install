@@ -1,6 +1,7 @@
-Python-2.6.8.tar.bz2:    c6e0420a21d8b23dee8b0195c9b9a125
-Python-2.7.5.tar.bz2:    6334b666b7ff2038c761d7b27ba699c1
-Python-3.3.2.tar.bz2:    7dffe775f3bea68a44f762a3490e5e28
-pip-1.4.1.tar.gz:        6afbb46aeb48abac658d4df742bff714
-setuptools-1.1.tar.gz:   84062633c3818c912af76d54a40d11a7
+Python-2.6.8.tgz:        f6c1781f5d73ab7dfa5181f43ea065f6
+Python-2.7.6.tgz:        1d8728eb0dfcac72a0fd99c17ec7f386
+Python-2.7.5.tgz:        6334b666b7ff2038c761d7b27ba699c1
+Python-3.3.2.tgz:        7dffe775f3bea68a44f762a3490e5e28
+pip-1.5.4.tar.gz:        834b2904f92d46aaa333267fb1c922bb
+setuptools-3.3.tar.gz:   87680a0eb0bb6f720d5e2d89ba67debc
 
